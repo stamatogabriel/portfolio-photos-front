@@ -17,6 +17,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
   transition-duration: 0.5s;
   :hover {
     color: #bcbcbc;

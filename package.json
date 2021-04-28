@@ -11,12 +11,22 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@unform/core": "^2.1.6",
+    "@unform/web": "^2.1.6",
+    "axios": "^0.21.1",
     "next": "10.1.3",
     "nprogress": "^0.2.0",
+    "polished": "^4.1.2",
     "react": "17.0.2",
+    "react-cookie": "^4.0.3",
     "react-dom": "17.0.2",
+    "react-dropzone": "^11.3.2",
     "react-icons": "^4.2.0",
-    "styled-components": "^5.2.3"
+    "react-intl": "^5.16.0",
+    "react-spring": "8.0.27",
+    "styled-components": "^5.2.3",
+    "uuidv4": "^6.2.7",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
@@ -24,7 +34,10 @@
     "@types/node": "^14.14.41",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-intl": "^3.0.0",
     "@types/styled-components": "^5.1.9",
+    "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "cz-conventional-changelog": "^3.3.0",
