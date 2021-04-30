@@ -4,18 +4,54 @@ import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
 import * as Yup from 'yup'
 
-import { useAuth } from '../../../hooks/auth_context'
-import { useToast } from '../../../hooks/toast'
+import { useAuth } from '../../hooks/auth_context'
+import { useToast } from '../../hooks/toast'
 
-import getValidationError from '../../../utils/getValidationErrors'
+import getValidationError from '../../utils/getValidationErrors'
 
 import { FaMailBulk } from 'react-icons/fa'
 
-import { Container } from '../../../components/styles/container'
-import Input from '../../../components/input'
-import Button from '../../../components/button'
+import { Container } from '../../components/styles/container'
+import Input from '../../components/input'
+import Button from '../../components/button'
 
-import { Background, Content, Wrapper } from './styles'
+import styled from 'styled-components'
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+
+  form {
+    margin: 80px 0;
+    min-width: 300px;
+    width: 100%;
+  }
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  a {
+    margin-top: 24px;
+    display: block;
+  }
+`
+
+export const Wrapper = styled.div`
+  height: calc(100vh - 150px);
+
+  display: flex;
+  align-items: stretch;
+`
+
+export const Background = styled.div`
+  flex: 1;
+  background-size: cover;
+`
 
 interface SignInFormData {
   email: string
