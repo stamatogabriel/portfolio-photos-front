@@ -24,15 +24,15 @@ export const Content = styled.div`
     overflow: auto;
   }
   @media (max-width: 1100px) {
-    width: 70%;
+    width: 40%;
   }
   @media (max-width: 800px) {
-    width: 80%;
+    width: 50%;
   }
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   border-radius: 10px;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 40%; /* Could be more or less, depending on screen size */
 `

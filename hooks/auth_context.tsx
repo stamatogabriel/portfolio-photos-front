@@ -8,6 +8,7 @@ interface ICredentials {
 
 interface IAuthContext {
   user: any
+  access_token: string
   signIn(credentials: ICredentials): Promise<void>
   signOut(): void
 }
@@ -54,7 +55,9 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, [])
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider
+      value={{ access_token: data.access_token, user: data.user, signIn, signOut }}
+    >
       {children}
     </AuthContext.Provider>
   )

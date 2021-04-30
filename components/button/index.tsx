@@ -1,11 +1,13 @@
 import { ButtonHTMLAttributes } from 'react'
 import { CustomButton } from './styles'
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  colorButton?: string
+}
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
+const Button: React.FC<ButtonProps> = ({ children, colorButton, ...rest }) => {
   return (
-    <CustomButton type="button" {...rest}>
+    <CustomButton type="button" {...rest} colorButton={colorButton}>
       {children}
     </CustomButton>
   )

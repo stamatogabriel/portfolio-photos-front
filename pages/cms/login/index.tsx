@@ -62,7 +62,7 @@ const Login: React.FC = () => {
         })
       }
     },
-    [addToast, signIn]
+    [addToast, router, signIn]
   )
 
   return (

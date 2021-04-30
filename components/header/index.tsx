@@ -12,10 +12,8 @@ export function Header(): JSX.Element {
 
   const switchLanguage = (localeSwitch: string): any => {
     router.push('/', `/`, { locale: localeSwitch })
-    console.log(cookie.NEXT_LOCALE === localeSwitch)
     if (cookie.NEXT_LOCALE !== localeSwitch) {
       setCookie('NEXT_LOCALE', localeSwitch, { path: `/` })
-      console.log(cookie.NEXT_LOCALE)
     }
   }
   return (

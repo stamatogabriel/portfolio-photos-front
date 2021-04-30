@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
-import { FiX, FiCamera, FiLogOut } from 'react-icons/fi'
+import { FiX, FiCamera, FiLogOut, FiUsers, FiUser, FiGrid } from 'react-icons/fi'
+
+import { IoImages, IoFolderOpenOutline } from 'react-icons/io5'
 
 import { Container, DropzoneWrapper, IconWrapper, ImageWrapper, Item, Side } from './styles'
 
@@ -8,9 +10,11 @@ import Modal from '../modal'
 
 import { useDropzone } from 'react-dropzone'
 
-import { FiUsers, FiUser, FiGithub, FiShoppingCart, FiGrid } from 'react-icons/fi'
+interface SidebarProps {
+  selected: string
+}
 
-function Sidebar({ selected }): JSX.Element {
+const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
   const [openModalImage, setOpenModalImage] = useState(false)
 
   const closeModalImage = (): any => {
@@ -48,20 +52,20 @@ function Sidebar({ selected }): JSX.Element {
       <ul>
         <Item item={selected === 'dash'}>
           <FiGrid size={20} />
-          <Link href="/dashboard">
+          <Link href="/cms">
             <a>Dashboard</a>
           </Link>
         </Item>
-        <Item item={selected === 'pets'}>
-          <FiGithub size={20} />
-          <Link href="/dashboard/pets">
-            <a>Listar Pets</a>
+        <Item item={selected === 'categories'}>
+          <IoFolderOpenOutline size={20} />
+          <Link href="/cms/categories">
+            <a>Listar Categorias</a>
           </Link>
         </Item>
-        <Item item={selected === 'items'}>
-          <FiShoppingCart size={20} />
-          <Link href="/dashboard/items">
-            <a>Listar ítens do brechó</a>
+        <Item item={selected === 'medias'}>
+          <IoImages size={20} />
+          <Link href="/cms/medias">
+            <a>Listar Mídias</a>
           </Link>
         </Item>
         <Item item={selected === 'admin'}>
