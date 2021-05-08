@@ -80,9 +80,7 @@ const NewCategory: React.FC<INewCategory> = ({ close, category }) => {
         <Input name="name_english" placeholder="Nome em inglês" />
         <Input name="description_english" placeholder="Descrição em português" />
 
-        <Button colorButton="#336455" type="submit">
-          Cadastrar
-        </Button>
+        <Button type="submit">Cadastrar</Button>
       </Form>
     </Container>
   )

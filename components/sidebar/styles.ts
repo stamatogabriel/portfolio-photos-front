@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components'
 import { lighten } from 'polished'
+import { theme } from '../styles/theme'
 
 interface Props {
   item: boolean
 }
 
-export const Side = styled.div`
-  background: #ccc;
+export const Side = styled.aside`
+  background: ${theme.colors.background.secondary};
   width: 20%;
   height: calc(100vh - 85px);
   min-width: 200px;
@@ -21,17 +22,17 @@ export const Side = styled.div`
     justify-content: center;
     width: 50%;
     cursor: pointer;
-    color: #555;
+    color: ${theme.colors.secondary.main};
     transition: color 0.5s;
     &:hover {
-      color: #000;
+      color: ${theme.colors.secondary.dark};
       svg {
-        color: #000;
+        color: ${theme.colors.secondary.dark};
       }
     }
     svg {
       margin-right: 8px;
-      color: #555;
+      color: ${theme.colors.secondary.main};
       transition: color 0.5s;
     }
   }
@@ -45,8 +46,9 @@ export const Side = styled.div`
   a {
     margin-left: 15px;
     font-size: 0.95rem;
+    color: ${theme.colors.white.main};
     &:hover {
-      color: #000;
+      color: ${theme.colors.white.secondary};
     }
   }
 `
@@ -59,17 +61,17 @@ export const Item = styled.li<Props>`
   padding: 8px;
   margin-bottom: 10px;
   border-radius: 10px;
-  color: #555;
+  color: ${theme.colors.white.main};
   transition: background-color 0.5s;
   ${(props) =>
     props.item &&
     css`
-      background-color: #bbb;
-      color: #000;
+      background-color: ${theme.colors.secondary.dark};
+      color: ${theme.colors.white.main};
     `}
   &:hover {
-    background-color: #bbb;
-    color: #000;
+    background-color: ${theme.colors.secondary.main};
+    color: ${theme.colors.white.secondary};
   }
 `
 
@@ -82,7 +84,7 @@ export const IconWrapper = styled.div`
     cursor: pointer;
     transition: color 0.5s;
     &:hover {
-      color: #aaa;
+      color: ${theme.colors.secondary.dark};
     }
   }
 `
@@ -92,14 +94,14 @@ export const ImageWrapper = styled.div`
   width: 130px;
   border-radius: 50%;
   padding: 1rem;
-  background-color: #ccc;
+  background-color: ${theme.colors.secondary.main};
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 30px auto;
   transition: background-color 0.5s;
   cursor: pointer;
-  border: 2px solid #333;
+  border: 2px solid ${theme.colors.white.main};
   img {
     transition: opacity 0.5s;
     object-fit: cover;
@@ -113,7 +115,7 @@ export const ImageWrapper = styled.div`
     transition: visibility 0.3s;
   }
   &:hover {
-    background-color: #aaa;
+    background-color: ${theme.colors.secondary.main};
     img {
       opacity: 0.3;
     }
@@ -124,7 +126,7 @@ export const ImageWrapper = styled.div`
 `
 
 export const DropzoneWrapper = styled.div`
-  border: 1px dotted #333;
+  border: 1px dotted ${theme.colors.white.main};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -134,12 +136,12 @@ export const DropzoneWrapper = styled.div`
   min-height: 100px;
   p {
     text-align: center;
-    color: #333;
+    color: ${theme.colors.white.main};
   }
   &:hover {
-    border-color: ${lighten(0.4, '#333')};
+    border-color: ${lighten(0.4, theme.colors.white.main)};
     p {
-      color: ${lighten(0.4, '#333')};
+      color: ${lighten(0.4, theme.colors.white.main)};
     }
   }
 `
@@ -157,12 +159,12 @@ export const Container = styled.div`
     border: none;
     background: transparent;
     cursor: pointer;
-    color: #555;
+    color: ${theme.colors.white.main};
     transition: color 0.5s;
     margin: 5px 0 0 0;
     font-size: 0.85rem;
     & :hover {
-      color: #000;
+      color: ${theme.colors.white.secondary};
     }
   }
 `

@@ -1,13 +1,15 @@
 import styled from 'styled-components'
+import { theme } from '../styles/theme'
 
 export const HeaderWrapper = styled.header`
   top: 0;
   margin: 0;
-  background-color: #fff;
+  background-color: ${theme.colors.background.secondary};
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: 95px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
 `
 
 export const LinkWrapper = styled.div`
@@ -19,7 +21,7 @@ export const LinkWrapper = styled.div`
     align-items: center;
     a {
       margin-left: 35px;
-      font-size: 18px;
+      font-size: 1.4rem;
     }
   }
 `
@@ -37,5 +39,5 @@ export const LanguageSelect = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 1rem;
 `

@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { FiX, FiCamera, FiLogOut, FiUsers, FiUser, FiGrid } from 'react-icons/fi'
+import { FiX, FiCamera, FiLogOut, FiUser, FiGrid } from 'react-icons/fi'
 
 import { IoImages, IoFolderOpenOutline } from 'react-icons/io5'
 
@@ -9,31 +10,46 @@ import { Container, DropzoneWrapper, IconWrapper, ImageWrapper, Item, Side } fro
 import Modal from '../modal'
 
 import { useDropzone } from 'react-dropzone'
+import { useAuth } from '../../hooks/auth_context'
+
+import api from '../../services/api'
 
 interface SidebarProps {
-  selected: string
+  selected?: string
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
   const [openModalImage, setOpenModalImage] = useState(false)
+  const { signOut, access_token, user, setUser } = useAuth()
+  const router = useRouter()
 
-  const closeModalImage = (): any => {
-    setOpenModalImage(false)
-  }
-
-  const onDrop = useCallback(async (acceptedFiles) => {
-    const form = new FormData()
-
-    form.append('file', acceptedFiles[0])
-
-    // const response = await api.put(`/users/${user.profile._id}/images`, form, {
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // })
-
+  const closeModalImage = useCallback((): any => {
     setOpenModalImage(false)
   }, [])
+
+  const logout = useCallback(() => {
+    signOut()
+    router.push('/cms/login')
+  }, [router, signOut])
+
+  const onDrop = useCallback(
+    async (acceptedFiles) => {
+      const form = new FormData()
+
+      form.append('file', acceptedFiles[0])
+
+      const { data } = await api.put(`/users/${user?._id}`, form, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+      console.log(data)
+      setUser(data)
+
+      setOpenModalImage(false)
+    },
+    [access_token, user?._id]
+  )
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
@@ -41,11 +57,14 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
     <Side>
       <ImageWrapper onClick={() => setOpenModalImage(true)}>
         <FiCamera size={50} />
-        <img src={'/assets/user.png'} alt="Imagem do usuário" />
+        <img
+          src={user?.avatar ? user?.avatar : '/assets/sem-imagem-avatar.png'}
+          alt="Imagem do usuário"
+        />
       </ImageWrapper>
       <Container>
-        <h3>Gabriel</h3>
-        <Link href="/dashboard/user">
+        <h3>{user?.name}</h3>
+        <Link href="/cms/profile">
           <a>Editar Cadastro</a>
         </Link>
       </Container>
@@ -68,23 +87,13 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
             <a>Listar Mídias</a>
           </Link>
         </Item>
-        <Item item={selected === 'admin'}>
+        <Item item={selected === 'users'}>
           <FiUser size={20} />
-          <Link href="/dashboard/admins">
-            <a>Listar administradores</a>
+          <Link href="/cms/users">
+            <a>Listar usuários</a>
           </Link>
         </Item>
-        <Item item={selected === 'people'}>
-          <FiUsers size={20} />
-          <Link href="/dashboard/people">
-            <a>Listar pessoas que adotaram</a>
-          </Link>
-        </Item>
-        <button
-          onClick={() => {
-            return
-          }}
-        >
+        <button onClick={logout}>
           <FiLogOut size={20} />
           Sair
         </button>

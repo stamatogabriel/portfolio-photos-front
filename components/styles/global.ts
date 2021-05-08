@@ -11,8 +11,9 @@ body {
   padding: 0;
   margin: 0 auto;
   font-family: Roboto, sans-serif;
-  background-color: #eee;
-  color: #333;
+  background: #312E38;
+  color: #FFF;
+  -webkit-font-smoothing: antialiased;
 }
 a {
   color: inherit;

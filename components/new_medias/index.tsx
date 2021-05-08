@@ -63,7 +63,6 @@ const NewMedia: React.FC<INewMedia> = ({ close, media, categories }) => {
           description_english: Yup.string().required('Obrigatório'),
         })
 
-        console.log(data)
         await schema.validate(data, { abortEarly: false })
 
         const dataForm = new FormData()
@@ -152,9 +151,7 @@ const NewMedia: React.FC<INewMedia> = ({ close, media, categories }) => {
         ) : (
           <Input name="media_url" placeholder="Link do vídeo" />
         )}
-        <Button colorButton="#336455" type="submit">
-          Cadastrar
-        </Button>
+        <Button type="submit">Cadastrar</Button>
       </Form>
     </Container>
   )

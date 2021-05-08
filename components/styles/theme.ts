@@ -1,10 +1,11 @@
 export const theme = {
   colors: {
-    primary: '#0E1E55',
+    primary: '#312E38',
     secondary: {
-      main: '#719F81',
-      dark: '#3b8755',
+      main: '#ff9000',
+      dark: '#B36500',
     },
+    error: '#c53030',
     white: {
       main: '#fff',
       secondary: '#f6f6f6',
@@ -12,6 +13,10 @@ export const theme = {
     black: {
       main: '#000',
       secondary: '#111',
+    },
+    background: {
+      main: '#312E38',
+      secondary: '#3C3845',
     },
   },
 }

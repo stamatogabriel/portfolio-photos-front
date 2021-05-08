@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { theme } from '../styles/theme'
 import Tooltip from '../tooltip'
 
 interface ContainerProps {
@@ -11,26 +12,26 @@ export const Container = styled.div<ContainerProps>`
   padding: 1rem;
   width: 100%;
   border-radius: 8px;
-  border: solid 1px #333;
+  border: solid 1px ${theme.colors.white.secondary};
 
   ${(props) =>
     props.isErrored &&
     css`
-      color: #c53030;
-      border-color: #c53030;
+      color: ${theme.colors.error};
+      border-color: ${theme.colors.error};
     `}
 
   ${(props) =>
     props.isFocused &&
     css`
-      color: yellow;
-      border-color: yellow;
+      color: ${theme.colors.secondary.dark};
+      border-color: ${theme.colors.secondary.dark};
     `}
 
   ${(props) =>
     props.isFilled &&
     css`
-      color: yellow;
+      color: ${theme.colors.secondary.dark};
     `}
 
   display: flex;
@@ -40,15 +41,16 @@ export const Container = styled.div<ContainerProps>`
     flex: 1;
     background: transparent;
     border: none;
+    color: ${theme.colors.white.secondary};
     outline: none;
     &::-ms-expand {
       display: none;
     }
     :invalid {
-      color: #aaa;
+      color: ${theme.colors.white.secondary};
     }
     option {
-      color: #333;
+      color: ${theme.colors.black.secondary};
     }
   }
 
@@ -70,11 +72,11 @@ export const Error = styled(Tooltip)`
   }
 
   span {
-    background: #c53030;
-    color: #fff;
+    background: ${theme.colors.error};
+    color: ${theme.colors.white.main};
 
     &::before {
-      border-color: #c53030 transparent;
+      border-color: ${theme.colors.error} transparent;
     }
   }
 `

@@ -254,10 +254,23 @@ const Medias: React.FC<IMedias> = ({ medias, categories, total_pages, page }) =>
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ query, req }) => {
   const page = query.page || 1
 
-  const categoriesResponse = await api.get(`/categories?page=${page}`)
+  const token = req.cookies['@Portfolio_access_token']?.toString()
+
+  if (!token) {
+    return {
+      redirect: {
+        destination: '/cms/login',
+        permanent: false,
+      },
+    }
+  }
+
+  const categoriesResponse = await api.get(`/categories?page=${page}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  })
   const response = await api.get(`/medias?page=${page}`)
 
   const { medias, total_pages } = response.data

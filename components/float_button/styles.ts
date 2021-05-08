@@ -10,11 +10,11 @@ export const CustomButton = styled.button`
   width: 65px;
   border-radius: 999px;
   border: none;
-  background: ${theme.colors.primary};
+  background: ${theme.colors.secondary.dark};
   transition: background-color 0.5s;
   cursor: pointer;
 
   &:hover {
-    background: ${lighten(0.25, theme.colors.primary)};
+    background: ${lighten(0.25, theme.colors.secondary.dark)};
   }
 `

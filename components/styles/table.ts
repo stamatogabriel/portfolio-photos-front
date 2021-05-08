@@ -1,13 +1,15 @@
 import styled from 'styled-components'
+import { theme } from './theme'
 
 export const Table = styled.table`
   width: 100%;
   padding: 10px;
   border-spacing: 0.5rem;
   border-collapse: collapse;
+
   thead {
-    background: #333;
-    color: #fff;
+    background: ${theme.colors.secondary.dark};
+    color: ${theme.colors.white.secondary};
   }
   tr {
     height: 30px;
@@ -21,7 +23,7 @@ export const Table = styled.table`
     tr {
       transition: background-color 0.5s;
       &:hover {
-        background-color: #aaa;
+        background-color: ${theme.colors.background.secondary};
       }
     }
   }

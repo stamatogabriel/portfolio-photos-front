@@ -29,7 +29,7 @@ function MyApp({ Component, pageProps }): JSX.Element {
   return (
     <IntlProvider locale={locale} defaultLocale={defaultLocale} messages={messages}>
       <Head>
-        <title>Movimento Bem Maior</title>
+        <title>Álvar Schwarcz</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="Movimento Bem Maior" />
         <meta name="keywords" content="Movimento Bem Maior" />
