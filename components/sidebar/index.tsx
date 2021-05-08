@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
 
       setOpenModalImage(false)
     },
-    [access_token, user?._id]
+    [access_token, setUser, user?._id]
   )
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
