@@ -1,6 +1,9 @@
 export const pt = {
   '*': {
-    about: 'Teste',
+    menu_categories: 'Categorias',
+    menu_home: 'Home',
+    menu_contact: 'Contato',
+    menu_about: 'Sobre',
   },
   '/': {
     hello: 'Bonjour le monde!',

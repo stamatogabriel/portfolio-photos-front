@@ -20,7 +20,7 @@ export const LinkWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     a {
-      margin-left: 35px;
+      margin: 0 35px;
       font-size: 1.4rem;
     }
   }
@@ -39,5 +39,16 @@ export const LanguageSelect = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  margin-left: 1rem;
+  margin: 0 1rem;
+  padding: 3px;
+  width: 30;
+
+  svg {
+    color: ${theme.colors.white.main};
+    transition: color 0.5s;
+
+    &:hover {
+      color: #ccc;
+    }
+  }
 `

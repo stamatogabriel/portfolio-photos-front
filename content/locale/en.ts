@@ -1,6 +1,9 @@
 export const en = {
   '*': {
-    about: 'About',
+    menu_categories: 'Categories',
+    menu_home: 'Home',
+    menu_contact: 'Contact',
+    menu_about: 'About',
   },
   '/': {
     hello: 'Hello, world!',
