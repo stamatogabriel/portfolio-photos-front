@@ -29,10 +29,10 @@ function MyApp({ Component, pageProps }): JSX.Element {
   return (
     <IntlProvider locale={locale} defaultLocale={defaultLocale} messages={messages}>
       <Head>
-        <title>Álvar Schwarcz</title>
+        <title>Álvaro Schwarcz</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Movimento Bem Maior" />
-        <meta name="keywords" content="Movimento Bem Maior" />
+        <meta name="description" content="Álvaro Schwarcz" />
+        <meta name="keywords" content="Álvaro Schwarcz" />
         <meta name="og:image" content="/assets/Logo.png" />
         <meta charSet="UTF-8" />
         <link rel="shortcut icon" href="/favicon.ico" />
