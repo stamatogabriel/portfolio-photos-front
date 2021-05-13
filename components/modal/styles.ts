@@ -9,7 +9,7 @@ export const Container = styled.div<IContainer>`
   position: fixed;
   display: flex;
   align-items: center;
-  z-index: 1;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
@@ -17,7 +17,7 @@ export const Container = styled.div<IContainer>`
   overflow: none;
   background-color: rgba(0, 0, 0, 0.6);
   transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 `
 
 export const Content = styled.div`
@@ -28,6 +28,7 @@ export const Content = styled.div`
     height: 100%;
     max-height: 800px;
     overflow-y: auto;
+    z-index: 100;
   }
   @media (max-width: 1100px) {
     width: 40%;

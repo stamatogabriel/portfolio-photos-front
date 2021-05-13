@@ -34,7 +34,6 @@ export const ImageContainer = styled.div`
   }
 
   img {
-    max-width: 300px;
     width: 100%;
     border-radius: 7px 7px 0 0;
     cursor: pointer;

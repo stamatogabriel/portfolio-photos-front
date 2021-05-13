@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import styled from 'styled-components'
 
-import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
+import { FiArrowLeft, FiArrowRight, FiX } from 'react-icons/fi'
 
 import api from '../../services/api'
 
@@ -12,6 +12,7 @@ import Modal from '../../components/modal'
 import { Container } from '../../components/styles/container'
 import { Pagination } from '../../components/styles/pagination'
 import { ImageContainer } from '../../components/styles/image_container'
+import { theme } from '../../components/styles/theme'
 
 const CustomContainer = styled(Container)`
   flex-direction: column;
@@ -40,6 +41,19 @@ const GridWrapper = styled.div`
 const ModalWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  button {
+    cursor: pointer;
+    margin: 0 0 15px auto;
+    transition: transform 0.5s;
+    background: transparent;
+    border: none;
+    color: ${theme.colors.white.secondary};
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 `
 
 interface MediaType {
@@ -61,42 +75,49 @@ const Medias: React.FC<MediaType> = ({ medias, total_pages, page }) => {
 
   const closeModal = useCallback(() => {
     setOpenModal(false)
-    setModalImage(undefined)
+    setTimeout(() => {
+      setModalImage(undefined)
+    }, 1000)
   }, [])
 
   return (
-    <CustomContainer>
-      <GridWrapper>
-        {medias.map((item) => (
-          <ImageContainer key={item._id} onClick={() => handleImage(item)}>
-            <img src={item.media_url} alt={item.title_english} />
-            <h3>{locale === 'en' ? item.title_english : item.title_portuguese}</h3>
-            <div>
-              <p>{locale === 'en' ? item.description_english : item.description_portuguese}</p>
-            </div>
-          </ImageContainer>
-        ))}
-      </GridWrapper>
-      {total_pages > 1 && (
-        <Pagination>
-          <button
-            onClick={() => router.push(`/galery?page=${Number(page) - 1}`)}
-            disabled={Number(page) === 1 || total_pages === 1}
-          >
-            <FiArrowLeft style={{ marginRight: '10px' }} />
-            Anterior
-          </button>
-          <button
-            disabled={Number(page) >= total_pages}
-            onClick={() => router.push(`/galery?page=${Number(page) + 1}`)}
-          >
-            Proximo
-            <FiArrowRight style={{ marginLeft: '10px' }} />
-          </button>
-        </Pagination>
-      )}
+    <>
+      <CustomContainer>
+        <GridWrapper>
+          {medias.map((item) => (
+            <ImageContainer key={item._id} onClick={() => handleImage(item)}>
+              <img src={item.media_url} alt={item.title_english} />
+              <h3>{locale === 'en' ? item.title_english : item.title_portuguese}</h3>
+              <div>
+                <p>{locale === 'en' ? item.description_english : item.description_portuguese}</p>
+              </div>
+            </ImageContainer>
+          ))}
+        </GridWrapper>
+        {total_pages > 1 && (
+          <Pagination>
+            <button
+              onClick={() => router.push(`/galery?page=${Number(page) - 1}`)}
+              disabled={Number(page) === 1 || total_pages === 1}
+            >
+              <FiArrowLeft style={{ marginRight: '10px' }} />
+              Anterior
+            </button>
+            <button
+              disabled={Number(page) >= total_pages}
+              onClick={() => router.push(`/galery?page=${Number(page) + 1}`)}
+            >
+              Proximo
+              <FiArrowRight style={{ marginLeft: '10px' }} />
+            </button>
+          </Pagination>
+        )}
+      </CustomContainer>
       <Modal close={closeModal} open={openModal}>
         <ModalWrapper>
+          <button onClick={closeModal}>
+            <FiX size={30} />
+          </button>
           <img
             src={modalImage?.media_url}
             alt={locale === 'en' ? modalImage?.title_english : modalImage?.title_portuguese}
@@ -107,7 +128,7 @@ const Medias: React.FC<MediaType> = ({ medias, total_pages, page }) => {
           </p>
         </ModalWrapper>
       </Modal>
-    </CustomContainer>
+    </>
   )
 }
 
