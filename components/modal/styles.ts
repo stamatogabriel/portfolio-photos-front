@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { theme } from '../styles/theme'
 
-export const Container = styled.div`
+interface IContainer {
+  open: boolean
+}
+
+export const Container = styled.div<IContainer>`
   position: fixed;
   display: flex;
   align-items: center;
@@ -12,6 +16,8 @@ export const Container = styled.div`
   height: 100%;
   overflow: none;
   background-color: rgba(0, 0, 0, 0.6);
+  transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100%)')};
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `
 
 export const Content = styled.div`
@@ -29,6 +35,7 @@ export const Content = styled.div`
   @media (max-width: 800px) {
     width: 50%;
   }
+
   background-color: ${theme.colors.background.secondary};
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;

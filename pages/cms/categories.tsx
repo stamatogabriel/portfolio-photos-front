@@ -231,11 +231,9 @@ const Categories: React.FC<ICategories> = ({ categories, total_pages, page }) =>
           )}
         </CustomContainer>
       </Wrapper>
-      {openModal && (
-        <Modal close={changeCreate}>
-          <CategoryCreate close={changeCreate} category={categoryUpdate} />
-        </Modal>
-      )}
+      <Modal close={changeCreate} open={openModal}>
+        <CategoryCreate close={changeCreate} category={categoryUpdate} />
+      </Modal>
     </div>
   )
 }

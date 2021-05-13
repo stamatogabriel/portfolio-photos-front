@@ -215,11 +215,9 @@ const Users: React.FC<IUsers> = ({ users }) => {
           )}
         </CustomContainer>
       </Wrapper>
-      {openModal && (
-        <Modal close={changeCreate}>
-          <UserCreate close={changeCreate} user={userUpdate} />
-        </Modal>
-      )}
+      <Modal close={changeCreate} open={openModal}>
+        <UserCreate close={changeCreate} user={userUpdate} />
+      </Modal>
     </div>
   )
 }

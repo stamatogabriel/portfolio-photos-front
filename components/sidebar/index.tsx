@@ -98,22 +98,20 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
           Sair
         </button>
       </ul>
-      {openModalImage && (
-        <Modal close={closeModalImage}>
-          <IconWrapper>
-            <FiX size={25} onClick={() => setOpenModalImage(false)} />
-          </IconWrapper>
-          <h2>Alterar avatar</h2>
-          <DropzoneWrapper {...getRootProps()}>
-            <input {...getInputProps()} />
-            {isDragActive ? (
-              <p>Solte as imagens aqui ...</p>
-            ) : (
-              <p>Arraste as imagens aqui, ou clique para selecionar</p>
-            )}
-          </DropzoneWrapper>
-        </Modal>
-      )}
+      <Modal close={closeModalImage} open={openModalImage}>
+        <IconWrapper>
+          <FiX size={25} onClick={() => setOpenModalImage(false)} />
+        </IconWrapper>
+        <h2>Alterar avatar</h2>
+        <DropzoneWrapper {...getRootProps()}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Solte as imagens aqui ...</p>
+          ) : (
+            <p>Arraste as imagens aqui, ou clique para selecionar</p>
+          )}
+        </DropzoneWrapper>
+      </Modal>
     </Side>
   )
 }

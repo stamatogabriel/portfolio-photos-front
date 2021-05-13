@@ -39,13 +39,14 @@ export const LanguageSelect = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  margin: 0 1rem;
-  padding: 3px;
+  margin: 0;
+  padding: 0;
   width: 30;
 
   svg {
     color: ${theme.colors.white.main};
     transition: color 0.5s;
+    padding: 0;
 
     &:hover {
       color: #ccc;

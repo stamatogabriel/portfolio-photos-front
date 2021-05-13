@@ -245,11 +245,9 @@ const Medias: React.FC<IMedias> = ({ medias, categories, total_pages, page }) =>
           )}
         </CustomContainer>
       </Wrapper>
-      {openModal && (
-        <Modal close={changeCreate}>
-          <MediaCreate close={changeCreate} media={MediaUpdate} categories={categoriesList} />
-        </Modal>
-      )}
+      <Modal close={changeCreate} open={openModal}>
+        <MediaCreate close={changeCreate} media={MediaUpdate} categories={categoriesList} />
+      </Modal>
     </div>
   )
 }
