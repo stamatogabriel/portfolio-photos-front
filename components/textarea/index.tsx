@@ -6,6 +6,7 @@ import { Container, Error } from './styles'
 
 interface TextareaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   name: string
+  rows?: number
 }
 
 const Input: React.FC<TextareaProps> = ({ name, ...rest }) => {

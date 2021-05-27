@@ -7,36 +7,15 @@ export const ImageContainer = styled.div`
   position: relative;
   will-change: border-color;
   transition: transform 0.5s;
-  background: rgba(0, 0, 0, 0.3);
   border-radius: 7px;
   cursor: pointer;
-
-  div {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    transition: display 0.5s;
-
-    p {
-      text-align: center;
-    }
-  }
-
-  h3 {
-    text-align: center;
-    margin: 5px;
-    width: 100%;
-  }
+  width: 100%;
+  height: auto;
+  margin: 15px 0;
 
   img {
     width: 100%;
-    border-radius: 7px 7px 0 0;
-    cursor: pointer;
+    border-radius: 7px;
   }
 
   &:after,
@@ -58,13 +37,14 @@ export const ImageContainer = styled.div`
   }
 
   &:after {
-    border-bottom: 2px solid ${theme.colors.secondary.main};
-    border-top: 2px solid ${theme.colors.secondary.main};
+    border-bottom: 3px solid ${theme.colors.secondary.main};
+    border-top: 3px solid ${theme.colors.secondary.main};
     transform: scaleX(0);
   }
 
   &:hover {
-    transform: scale(1.1);
+    z-index: 20;
+    //transform: scale(1.1);
 
     div {
       display: block;

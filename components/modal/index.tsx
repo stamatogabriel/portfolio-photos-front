@@ -4,9 +4,10 @@ import { Container, Content } from './styles'
 interface ModalProps {
   close(): void
   open: boolean
+  isImage?: boolean
 }
 
-const Modal: React.FC<ModalProps> = ({ children, close, open }) => {
+const Modal: React.FC<ModalProps> = ({ children, close, open, isImage }) => {
   const [modal, setModal] = useState<HTMLElement>()
 
   useEffect(() => {
@@ -22,8 +23,10 @@ const Modal: React.FC<ModalProps> = ({ children, close, open }) => {
   }
 
   return (
-    <Container id="myModal" open={open}>
-      <Content>{children}</Content>
+    <Container id="myModal" open={open} isImage={isImage}>
+      <Content open={open} isImage={isImage}>
+        {children}
+      </Content>
     </Container>
   )
 }

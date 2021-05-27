@@ -41,7 +41,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     user.password = undefined
     sessionStorage.setItem('@Portfolio:user', JSON.stringify(user))
     const access_token = sessionStorage.getItem('@Portfolio:access_token')
-    console.log(user)
+
     setData({ user, access_token })
   }, [])
 

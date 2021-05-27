@@ -89,7 +89,7 @@ function Dashboard(): JSX.Element {
           const errors = getValidationErrors(err)
           formRef.current?.setErrors(errors)
         }
-        console.log(err)
+
         addToast({
           type: 'error',
           title: 'Erro na atualização do cadastro',

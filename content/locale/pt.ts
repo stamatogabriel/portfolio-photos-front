@@ -6,10 +6,11 @@ export const pt = {
     menu_about: 'Sobre',
   },
   '/': {
-    hello: 'Bonjour le monde!',
+    hello: 'Olá mundo!',
     welcomeMessage: 'Bienvenue sur votre page internationalisée!',
   },
-  '/alt': {
-    hello: 'Bonjour',
+  '/contact': {
+    title: 'Fale conosco',
+    motive: 'Motivo do seu contato',
   },
 }

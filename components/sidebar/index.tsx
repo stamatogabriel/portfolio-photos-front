@@ -43,7 +43,7 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
           Authorization: `Bearer ${access_token}`,
         },
       })
-      console.log(data)
+
       setUser(data)
 
       setOpenModalImage(false)

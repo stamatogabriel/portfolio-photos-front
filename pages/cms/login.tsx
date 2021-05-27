@@ -10,7 +10,7 @@ import { useToast } from '../../hooks/toast'
 
 import getValidationError from '../../utils/getValidationErrors'
 
-import { FaMailBulk } from 'react-icons/fa'
+import { FiMail, FiLock } from 'react-icons/fi'
 
 import { Container } from '../../components/styles/container'
 import Input from '../../components/input'
@@ -112,8 +112,8 @@ const Login: React.FC = () => {
         <Content>
           <Form ref={formRef} onSubmit={handleSubmit} autoComplete="false">
             <h1>Faça seu login</h1>
-            <Input name="email" icon={FaMailBulk} placeholder="E-mail" />
-            <Input name="password" type="password" placeholder="Senha" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
+            <Input name="password" icon={FiLock} type="password" placeholder="Senha" />
             <Button type="submit">{loading ? 'Carregando...' : 'Entrar'}</Button>
             <Link href="/cms/forgot_pass">
               <a>Esqueci minha senha</a>

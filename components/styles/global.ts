@@ -14,6 +14,7 @@ body {
   background: #312E38;
   color: #FFF;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 a {
   color: inherit;

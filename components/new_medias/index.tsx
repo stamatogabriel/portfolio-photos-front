@@ -81,13 +81,15 @@ const NewMedia: React.FC<INewMedia> = ({ close, media, categories }) => {
         } else {
           await api.post('/medias', type === 'photo' ? dataForm : data)
         }
+
+        formRef?.current?.reset()
         close()
       } catch (err) {
         if (err.inner) {
           const errors = getValidationErrors(err)
           formRef.current?.setErrors(errors)
         }
-        console.log(err)
+
         addToast({
           type: 'error',
           title: media ? 'Erro na edição da mídia' : 'Erro na criação da mídia',
