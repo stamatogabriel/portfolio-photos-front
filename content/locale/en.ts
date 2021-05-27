@@ -6,7 +6,7 @@ export const en = {
     menu_about: 'About',
   },
   '/': {
-    hello: 'Hello, world!',
+    title: 'Contact us',
     welcomeMessage: 'Welcome to your internationalised page!',
   },
   '/contact': {

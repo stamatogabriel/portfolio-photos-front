@@ -6,7 +6,7 @@ export const pt = {
     menu_about: 'Sobre',
   },
   '/': {
-    hello: 'Olá mundo!',
+    title: 'Fale conosco',
     welcomeMessage: 'Bienvenue sur votre page internationalisée!',
   },
   '/contact': {
