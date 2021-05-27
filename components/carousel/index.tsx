@@ -2,6 +2,7 @@ import 'keen-slider/keen-slider.min.css'
 
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useKeenSlider } from 'keen-slider/react'
 
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
@@ -21,12 +22,14 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
     )
   )
 
+  const router = useRouter()
+  const { locale } = router
   const [pause, setPause] = useState(false)
   const timer = useRef<any>()
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     slidesPerView,
-    mode: 'free-snap',
-    spacing: 5,
+    mode: 'free',
+    spacing: isImages ? 0 : 5,
     centered: true,
     duration: 1000,
     loop: true,
@@ -44,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
 
   if (typeof window !== 'undefined')
     window.onresize = function () {
-      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 320 : 120)))
+      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 400 : 120)))
     }
 
   useEffect(() => {
@@ -97,7 +100,10 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
         <div ref={sliderRef} className="keen-slider">
           {data.map((image: any, idx: number) => (
             <ImageWrapper key={idx} className={`keen-slider__slide number-slide`}>
-              {image?.name_english}
+              <img
+                src={image?.media_url}
+                alt={locale === 'en' ? image?.name_english : image?.name_portuguese}
+              />
             </ImageWrapper>
           ))}
         </div>

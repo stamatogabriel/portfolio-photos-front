@@ -11,7 +11,7 @@ interface IContainerProps {
 export const Container = styled.div<IContainerProps>`
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: ${(props) => (props.isImages ? '100%' : '1200px')};
   height: ${(props) => (props.isImages ? '100%' : '30px')};
 
   .arrow {
@@ -37,9 +37,15 @@ export const Container = styled.div<IContainerProps>`
 `
 
 export const ImageWrapper = styled.div`
-  min-width: 320px;
-  height: 240px;
+  height: 400px;
+  width: 400px;
   border: 1px solid #333;
+
+  img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+  }
 `
 export const StringWrapper = styled.div`
   min-width: 60px;

@@ -1,9 +1,35 @@
 //import { useRouter } from 'next/router'
 //import { useIntl } from 'react-intl'
 
+import { GetServerSideProps } from 'next'
 import { Parallax } from '../components/styles/paralax'
+import { Container } from '../components/styles/container'
+import { Avatar } from '../components/styles/avatar'
+import Carousel from '../components/carousel'
+
+import api from '../services/api'
 
 import styled from 'styled-components'
+
+const CustomContainer = styled(Container)`
+  @media (max-width: 750px) {
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+  p {
+    margin-left: 25px;
+    max-width: 950px;
+    line-height: 2.3rem;
+    font-size: 1.4rem;
+  }
+`
 
 const CustomParallax = styled(Parallax)`
   display: flex;
@@ -27,7 +53,11 @@ const CustomParallax = styled(Parallax)`
   }
 `
 
-const Home: React.FC = () => {
+interface HomeType {
+  medias: any[]
+}
+
+const Home: React.FC<HomeType> = ({ medias }) => {
   //const { formatMessage } = useIntl()
   // const t = (id: string): string => formatMessage({ id })
   // const router = useRouter()
@@ -40,8 +70,32 @@ const Home: React.FC = () => {
           <span>Schwarcz Photos</span>
         </div>
       </CustomParallax>
+      <CustomContainer>
+        <Avatar src="assets/avatar.png" alt="Álvaro Schwarcz" />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+          ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+          sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+          est laborum.
+        </p>
+      </CustomContainer>
+      <Carousel data={medias} isImages />
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await api.get(`/medias`)
+
+  const { medias } = response.data
+
+  return {
+    props: {
+      medias,
+    },
+  }
 }
 
 export default Home
