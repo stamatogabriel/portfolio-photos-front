@@ -31,10 +31,10 @@ export const Content = styled.div<IContainer>`
     overflow-y: auto;
   }
   @media (max-width: 1100px) {
-    width: ${(props) => (props.isImage ? '100%' : '40%')};
+    width: ${(props) => (props.isImage ? 'auto' : '40%')};
   }
   @media (max-width: 800px) {
-    width: ${(props) => (props.isImage ? '100%' : '50%')};
+    width: ${(props) => (props.isImage ? 'auto' : '50%')};
   }
 
   background-color: ${(props) =>
@@ -44,7 +44,7 @@ export const Content = styled.div<IContainer>`
   border: 1px solid ${(props) => (props.isImage ? 'transparent' : theme.colors.white.main)};
   border-radius: 10px;
   width: ${(props) =>
-    props.isImage ? '100%' : '40%'}; /* Could be more or less, depending on screen size */
+    props.isImage ? 'auto' : '40%'}; /* Could be more or less, depending on screen size */
 
   ${(props) =>
     props.isImage &&

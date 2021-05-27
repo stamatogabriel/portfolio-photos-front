@@ -67,7 +67,7 @@ const ModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 90vh;
+  width: auto;
 
   img {
     width: 100%;
