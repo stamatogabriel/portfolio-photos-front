@@ -21,15 +21,16 @@ const CustomContainer = styled(Container)`
 
 const SubHeader = styled.div`
   width: 100vw;
-  height: 35px;
-  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 45px;
+  margin: 0;
   background: rgba(0, 0, 0, 0.4);
-  padding: 5px;
 
   a {
+    text-align: center;
+    font-size: 1rem;
     color: #fff;
   }
 `

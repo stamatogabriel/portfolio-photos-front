@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   padding: 0;
-  margin: 0 auto;
+  margin: 41px auto 0 auto;
   font-family: Roboto, sans-serif;
   background: #312E38;
   color: #FFF;
@@ -36,20 +36,16 @@ textarea:focus, input:focus, select:focus {
     border: 0 none;
     outline: 0;
 }
-  /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
-/* Track */
 ::-webkit-scrollbar-track {
   background: #fff;
 }
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #aaa;
   border-radius: 50px;
 }
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #333;
 }

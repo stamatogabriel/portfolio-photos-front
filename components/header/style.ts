@@ -4,6 +4,9 @@ import { theme } from '../styles/theme'
 export const HeaderWrapper = styled.header`
   top: 0;
   margin: 0;
+  width: 100vw;
+  position: fixed;
+  z-index: 30;
   background-color: ${theme.colors.background.secondary};
   display: flex;
   align-items: center;

@@ -54,7 +54,6 @@ const CustomContainer = styled(Container)`
   margin-bottom: 25px;
 
   p {
-    margin-left: 25px;
     max-width: 950px;
     line-height: 2.3rem;
     font-size: 1.4rem;
@@ -62,7 +61,7 @@ const CustomContainer = styled(Container)`
 
   img {
     height: 300px;
-    margin-left: 25px;
+    margin-left: 45px;
   }
 `
 

@@ -18,7 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [slidesPerView, setSlidesPerView] = useState(
     Math.floor(
-      typeof window !== 'undefined' ? Math.floor(window.innerWidth / (isImages ? 320 : 50)) : 1
+      typeof window !== 'undefined' ? Math.floor(window.innerWidth / (isImages ? 320 : 100)) : 1
     )
   )
 
@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
 
   if (typeof window !== 'undefined')
     window.onresize = function () {
-      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 400 : 50)))
+      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 400 : 100)))
     }
 
   useEffect(() => {

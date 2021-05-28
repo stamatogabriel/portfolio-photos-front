@@ -162,12 +162,17 @@ function Dashboard(): JSX.Element {
         </Form>
         <Form ref={passRef} onSubmit={updatePass} initialData={user}>
           <h2>Alterar a senha</h2>
-          <Input name="password" type="password" icon={FiLock} placeholder="Digite sua senha" />
+          <Input
+            name="password"
+            type="password"
+            icon={FiLock}
+            placeholder="Digite sua nova senha"
+          />
           <Input
             name="confirm_password"
             type="password"
             icon={FiLock}
-            placeholder="Confirme sua senha"
+            placeholder="Confirme sua nova senha"
           />
           <Button type="submit" disabled={loadingPass}>
             {loadingPass ? 'Carregando...' : 'Editar'}

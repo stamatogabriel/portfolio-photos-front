@@ -21,7 +21,7 @@ export const Container = styled.div<IContainerProps>`
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    fill: #333;
+    fill: #fff;
     cursor: pointer;
   }
   .arrow--left {
@@ -48,14 +48,15 @@ export const ImageWrapper = styled.div`
   }
 `
 export const StringWrapper = styled.div`
-  min-width: 60px;
+  min-width: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 
   a {
-    font-size: 1rem;
     color: #333;
+    min-width: 100%;
+    text-align: center;
   }
 `
 
