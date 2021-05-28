@@ -13,6 +13,7 @@ import { theme } from '../components/styles/theme'
 import { AppProvider } from '../hooks'
 
 import { Header } from '../components/header'
+import Footer from '../components/footer'
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps }): JSX.Element {
         <AppProvider>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </AppProvider>
       </ThemeProvider>
     </IntlProvider>

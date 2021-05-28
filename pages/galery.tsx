@@ -26,8 +26,12 @@ const SubHeader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: rgba(0, 0, 0, 0.4);
   padding: 5px;
+
+  a {
+    color: #fff;
+  }
 `
 
 const GridWrapper = styled.div`
