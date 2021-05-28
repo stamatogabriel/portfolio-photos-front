@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl'
 
 import { FormHandles } from '@unform/core'
 import { Form } from '@unform/web'
+import * as Yup from 'yup'
 
 import Input from '../components/input'
 import Textarea from '../components/textarea'
@@ -15,15 +16,20 @@ import { Container } from '../components/styles/container'
 import { Avatar } from '../components/styles/avatar'
 import Carousel from '../components/carousel'
 
+import getValidationError from '../utils/getValidationErrors'
+
 import api from '../services/api'
 
 import styled from 'styled-components'
+import { theme } from '../components/styles/theme'
+import { lighten } from 'polished'
 
 const FormWrapper = styled.div`
   background: rgba(0, 0, 0, 0.8);
   padding: 35px;
   border-radius: 15px;
   width: 35%;
+  margin: 15px;
 
   @media (max-width: 900px) {
     padding: 35px;
@@ -32,11 +38,41 @@ const FormWrapper = styled.div`
 
   @media (max-width: 700px) {
     padding: 35px;
-    width: 70%;
+    width: 95%;
+  }
+`
+
+const Error = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  text-align: center;
+  color: ${lighten(0.1, theme.colors.error)};
+`
+
+const Success = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  text-align: center;
+  color: #e6fffa;
+`
+
+const ContentWrapper = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  padding: 35px;
+  border-radius: 15px;
+  width: 55%;
+
+  @media (max-width: 900px) {
+    padding: 35px;
+    width: 40%;
   }
 
-  @media (max-width: 600px) {
-    padding: 20px;
+  @media (max-width: 700px) {
+    padding: 35px;
     width: 95%;
   }
 `
@@ -70,7 +106,10 @@ const CustomParallax = styled(Parallax)`
   justify-content: center;
   align-items: center;
 
-  div {
+  @media (max-width: 700px) {
+    > div {
+      flex-direction: column-reverse;
+    }
   }
 `
 
@@ -78,18 +117,60 @@ interface HomeType {
   medias: any[]
 }
 
+interface ContactFormData {
+  name: string
+  motive: string
+  email: string
+  message: string
+}
+
 const Home: React.FC<HomeType> = ({ medias }) => {
   const formRef = useRef<FormHandles>(null)
   const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
   const { formatMessage } = useIntl()
   const t = (id: string): string => formatMessage({ id })
   const router = useRouter()
   const { locale } = router
 
-  // const { addToast } = useToast()
+  const handleSubmit = useCallback(async (data: ContactFormData) => {
+    setLoading(true)
 
-  const handleSubmit = useCallback(() => {
-    return setLoading(true)
+    try {
+      formRef.current?.setErrors({})
+      setError(false)
+      setSuccess(false)
+
+      const schema = Yup.object().shape({
+        name: Yup.string().required('Informe seu nome'),
+        motive: Yup.string().required('Informe o motivo'),
+        email: Yup.string().required('Informe o seu email').email('Informe um email válido'),
+        message: Yup.string().required('Informe a mensagem'),
+      })
+
+      await schema.validate(data, {
+        abortEarly: false,
+      })
+
+      await api.post('/leads', data)
+
+      setLoading(false)
+
+      formRef.current.clearField('name')
+      formRef.current.clearField('email')
+      formRef.current.clearField('motive')
+      formRef.current.clearField('message')
+
+      setSuccess(true)
+    } catch (err) {
+      setError(true)
+      setLoading(false)
+      if (err instanceof Yup.ValidationError) {
+        const errors = getValidationError(err)
+        formRef.current?.setErrors(errors)
+      }
+    }
   }, [])
 
   return (
@@ -127,6 +208,7 @@ const Home: React.FC<HomeType> = ({ medias }) => {
           <FormWrapper>
             <Form ref={formRef} onSubmit={handleSubmit} autoComplete="false">
               <h1>{t('title')}</h1>
+              <Input name="name" placeholder={locale === 'en' ? 'Name' : 'Nome'} />
               <Input name="email" placeholder="E-mail" />
               <Input
                 name="motive"
@@ -146,8 +228,18 @@ const Home: React.FC<HomeType> = ({ medias }) => {
                   ? 'Send'
                   : 'Enviar'}
               </Button>
+              {error && <Error>{t('error')}</Error>}
+              {success && <Success>{t('success')}</Success>}
             </Form>
           </FormWrapper>
+          <ContentWrapper>
+            <h2>Teste</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus quibusdam, quae
+              eligendi distinctio molestiae aliquam illum veritatis! Iusto velit vel placeat commodi
+              cupiditate quam fuga sint impedit saepe, totam dicta!
+            </p>
+          </ContentWrapper>
         </Container>
       </CustomParallax>
     </div>

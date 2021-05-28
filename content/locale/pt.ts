@@ -7,7 +7,8 @@ export const pt = {
   },
   '/': {
     title: 'Fale conosco',
-    welcomeMessage: 'Bienvenue sur votre page internationalisée!',
+    error: 'Ocorreu um erro ao enviar a mensagem, por favor, tente de novo mais tarde',
+    success: 'Mensagem enviada com sucesso',
   },
   '/contact': {
     title: 'Fale conosco',

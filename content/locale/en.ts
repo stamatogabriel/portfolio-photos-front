@@ -7,7 +7,8 @@ export const en = {
   },
   '/': {
     title: 'Contact us',
-    welcomeMessage: 'Welcome to your internationalised page!',
+    error: 'There was an error sending the message, please try again later',
+    success: 'Message sent successfully',
   },
   '/contact': {
     title: 'Contact Me',

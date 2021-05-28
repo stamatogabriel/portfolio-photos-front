@@ -29,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
   const [sliderRef, slider] = useKeenSlider<HTMLDivElement>({
     slidesPerView,
     mode: 'free',
-    spacing: isImages ? 0 : 1,
+    spacing: isImages ? 5 : 1,
     centered: true,
     duration: 1000,
     loop: true,
@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ data, isImages }) => {
 
   if (typeof window !== 'undefined')
     window.onresize = function () {
-      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 400 : 100)))
+      setSlidesPerView(Math.floor(window.innerWidth / (isImages ? 320 : 100)))
     }
 
   useEffect(() => {

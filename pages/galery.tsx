@@ -37,34 +37,21 @@ const SubHeader = styled.div`
 
 const GridWrapper = styled.div`
   width: 100%;
-  max-width: 1150px;
-  // display: grid;
-  line-height: 0;
 
-  -moz-column-count: 1;
-  -webkit-column-count: 1;
-  column-count: 1;
-
-  -webkit-column-gap: 7px;
-  -moz-column-gap: 7px;
-  column-gap: 7px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.3rem;
 
   @media (min-width: 400px) {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1000px) {
-    -moz-column-count: 3;
-    -webkit-column-count: 3;
-    column-count: 3;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @media (min-width: 1100px) {
-    -moz-column-count: 4;
-    -webkit-column-count: 4;
-    column-count: 4;
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 const ModalWrapper = styled.div`

@@ -11,10 +11,11 @@ export const ImageContainer = styled.div`
   cursor: pointer;
   width: 100%;
   height: auto;
-  margin: 15px 0;
 
   img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 7px;
   }
 
@@ -31,20 +32,20 @@ export const ImageContainer = styled.div`
   }
 
   &:before {
-    border-left: 2px solid ${theme.colors.secondary.main};
-    border-right: 2px solid ${theme.colors.secondary.main};
+    border-left: 4px solid ${theme.colors.secondary.main};
+    border-right: 4px solid ${theme.colors.secondary.main};
     transform: scaleY(0);
   }
 
   &:after {
-    border-bottom: 3px solid ${theme.colors.secondary.main};
-    border-top: 3px solid ${theme.colors.secondary.main};
+    border-bottom: 4px solid ${theme.colors.secondary.main};
+    border-top: 4px solid ${theme.colors.secondary.main};
     transform: scaleX(0);
   }
 
   &:hover {
     z-index: 20;
-    //transform: scale(1.1);
+    transform: scale(1.2);
 
     div {
       display: block;
