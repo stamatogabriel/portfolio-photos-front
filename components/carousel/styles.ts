@@ -39,7 +39,7 @@ export const Container = styled.div<IContainerProps>`
 export const ImageWrapper = styled.div`
   height: 400px;
   width: 400px;
-  border: 1px solid #333;
+  border-radius: 7px;
 
   img {
     height: 400px;

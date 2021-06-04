@@ -25,7 +25,7 @@ import { theme } from '../components/styles/theme'
 import { lighten } from 'polished'
 
 const FormWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 35px;
   border-radius: 15px;
   width: 35%;
@@ -61,7 +61,7 @@ const Success = styled.span`
 `
 
 const ContentWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 35px;
   border-radius: 15px;
   width: 55%;

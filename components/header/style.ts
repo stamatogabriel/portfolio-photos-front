@@ -7,12 +7,12 @@ export const HeaderWrapper = styled.header`
   width: 100vw;
   position: fixed;
   z-index: 30;
-  background-color: ${theme.colors.background.secondary};
+  background-color: ${theme.colors.background.main};
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: 95px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
 `
 
 export const LinkWrapper = styled.div`
@@ -47,7 +47,7 @@ export const LanguageSelect = styled.button`
   width: 30;
 
   svg {
-    color: ${theme.colors.white.main};
+    color: ${theme.colors.black.main};
     transition: color 0.5s;
     padding: 0;
 

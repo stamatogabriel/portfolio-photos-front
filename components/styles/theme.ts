@@ -1,9 +1,9 @@
 export const theme = {
   colors: {
-    primary: '#312E38',
+    primary: '#fbfbfb',
     secondary: {
-      main: '#ff9000',
-      dark: '#B36500',
+      main: '#027A00',
+      dark: '#013B00',
     },
     error: '#c53030',
     white: {
@@ -15,8 +15,8 @@ export const theme = {
       secondary: '#111',
     },
     background: {
-      main: '#312E38',
-      secondary: '#3C3845',
+      main: '#fbfbfb',
+      secondary: '#ddd',
     },
   },
 }

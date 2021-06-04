@@ -11,8 +11,8 @@ body {
   padding: 0;
   margin: 41px auto 0 auto;
   font-family: Roboto, sans-serif;
-  background: #312E38;
-  color: #FFF;
+  background: #fbfbfb;
+  color: #333;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -22,7 +22,7 @@ a {
   cursor: pointer;
   transition-duration: 0.5s;
   :hover {
-    color: #bcbcbc;
+    color: #666;
   }
 }
 * {

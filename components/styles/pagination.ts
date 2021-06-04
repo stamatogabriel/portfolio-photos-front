@@ -10,11 +10,11 @@ export const Pagination = styled.div`
   justify-content: center;
   button {
     margin: 0 15px;
-    border: 1px solid ${theme.colors.white.secondary};
+    border: 1px solid ${theme.colors.black.secondary};
     background: transparent;
     border-radius: 50px;
     cursor: pointer;
-    color: ${theme.colors.white.secondary};
+    color: ${theme.colors.black.secondary};
     font-size: 15px;
     line-height: 24px;
     transition: font-weight 0.5s;

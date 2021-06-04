@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.footer`
+  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 180px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 
   a,
   p {

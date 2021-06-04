@@ -12,7 +12,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 1rem;
   width: 100%;
   border-radius: 8px;
-  border: solid 1px ${theme.colors.white.secondary};
+  border: solid 1px ${theme.colors.black.secondary};
 
   ${(props) =>
     props.isErrored &&
@@ -41,13 +41,13 @@ export const Container = styled.div<ContainerProps>`
     flex: 1;
     background: transparent;
     border: none;
-    color: ${theme.colors.white.secondary};
+    color: ${theme.colors.black.secondary};
     outline: none;
     &::-ms-expand {
       display: none;
     }
     :invalid {
-      color: ${theme.colors.white.secondary};
+      color: ${theme.colors.black.secondary};
     }
     option {
       color: ${theme.colors.black.secondary};
@@ -73,7 +73,7 @@ export const Error = styled(Tooltip)`
 
   span {
     background: ${theme.colors.error};
-    color: ${theme.colors.white.main};
+    color: ${theme.colors.black.main};
 
     &::before {
       border-color: ${theme.colors.error} transparent;

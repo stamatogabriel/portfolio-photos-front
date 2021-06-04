@@ -46,7 +46,8 @@ export const Side = styled.aside`
   a {
     margin-left: 15px;
     font-size: 0.95rem;
-    color: ${theme.colors.white.main};
+    color: ${theme.colors.black.main};
+
     &:hover {
       color: ${theme.colors.white.secondary};
     }
@@ -63,15 +64,24 @@ export const Item = styled.li<Props>`
   border-radius: 10px;
   color: ${theme.colors.white.main};
   transition: background-color 0.5s;
+  color: ${theme.colors.black.secondary};
+
   ${(props) =>
     props.item &&
     css`
       background-color: ${theme.colors.secondary.dark};
       color: ${theme.colors.white.main};
+
+      a {
+        color: ${theme.colors.white.main};
+      }
     `}
   &:hover {
     background-color: ${theme.colors.secondary.main};
     color: ${theme.colors.white.secondary};
+    a {
+      color: ${theme.colors.white.main};
+    }
   }
 `
 
@@ -101,12 +111,13 @@ export const ImageWrapper = styled.div`
   margin: 30px auto;
   transition: background-color 0.5s;
   cursor: pointer;
-  border: 2px solid ${theme.colors.white.main};
+  border: 2px solid ${theme.colors.secondary.main};
   img {
     transition: opacity 0.5s;
     object-fit: cover;
     height: 130px;
     width: 130px;
+    border: 2px solid ${theme.colors.secondary.main};
     border-radius: 50%;
   }
   svg {
@@ -159,12 +170,12 @@ export const Container = styled.div`
     border: none;
     background: transparent;
     cursor: pointer;
-    color: ${theme.colors.white.main};
+    color: ${theme.colors.black.main};
     transition: color 0.5s;
     margin: 5px 0 0 0;
     font-size: 0.85rem;
     & :hover {
-      color: ${theme.colors.white.secondary};
+      color: ${theme.colors.black.secondary};
     }
   }
 `

@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import Head from 'next/head'
 import Router, { useRouter } from 'next/router'
+import CookieConsent from 'react-cookie-consent'
 import { ThemeProvider } from 'styled-components'
 import { IntlProvider } from 'react-intl'
 import NProgress from 'nprogress'
@@ -14,6 +15,8 @@ import { AppProvider } from '../hooks'
 
 import { Header } from '../components/header'
 import Footer from '../components/footer'
+import { Container } from '../components/styles/container'
+import Link from 'next/link'
 
 Router.events.on('routeChangeStart', () => {
   NProgress.start()
@@ -50,6 +53,35 @@ function MyApp({ Component, pageProps }): JSX.Element {
           <Header />
           <Component {...pageProps} />
           <Footer />
+          <CookieConsent
+            location="bottom"
+            buttonText={locale === 'en' ? 'I understand!' : 'Eu aceito!'}
+            cookieName="myAwesomeCookieName2"
+            style={{
+              background: '#ccc',
+              color: '#333',
+              textAlign: 'center',
+            }}
+            buttonStyle={{
+              background: '#0F3B0C',
+              color: '#fff',
+              fontSize: '1rem',
+              borderRadius: '7px',
+            }}
+            declineButtonStyle={{ fontSize: '1rem', borderRadius: '7px' }}
+            expires={150}
+          >
+            <Container>
+              <p>
+                {locale === 'en'
+                  ? 'This website uses cookies to enhance the user experience.'
+                  : 'Este site utiliza cookies para melhorar sua experiência. Para saber mais visite nossa '}
+                <Link href="/privacy_policy">
+                  <a>{locale === 'en' ? 'Privacy Policy' : 'Política de Privacidade'}</a>
+                </Link>
+              </p>
+            </Container>
+          </CookieConsent>
         </AppProvider>
       </ThemeProvider>
     </IntlProvider>

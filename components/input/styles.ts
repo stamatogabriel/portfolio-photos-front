@@ -12,7 +12,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 1rem;
   width: 100%;
   border-radius: 8px;
-  border: solid 1px ${theme.colors.white.secondary};
+  border: solid 1px ${theme.colors.black.secondary};
 
   ${(props) =>
     props.isErrored &&
@@ -41,7 +41,7 @@ export const Container = styled.div<ContainerProps>`
     background: transparent;
     flex: 1;
     border: 0;
-    color: ${theme.colors.white.main};
+    color: ${theme.colors.black.main};
   }
 
   & + div {

@@ -17,6 +17,7 @@ import { theme } from '../components/styles/theme'
 
 const CustomContainer = styled(Container)`
   flex-direction: column;
+  min-height: 100vh;
 `
 
 const SubHeader = styled.div`
