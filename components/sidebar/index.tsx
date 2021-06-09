@@ -93,6 +93,12 @@ const Sidebar: React.FC<SidebarProps> = ({ selected }) => {
             <a>Listar usuários</a>
           </Link>
         </Item>
+        <Item item={selected === 'leads'}>
+          <FiUser size={20} />
+          <Link href="/cms/leads">
+            <a>Listar leads</a>
+          </Link>
+        </Item>
         <button onClick={logout}>
           <FiLogOut size={20} />
           Sair

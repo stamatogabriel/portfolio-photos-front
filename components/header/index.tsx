@@ -13,10 +13,13 @@ export function Header(): JSX.Element {
   const [cookie, setCookie] = useCookies(['NEXT_LOCALE'])
   const [openMenu, setOpenMenu] = useState<boolean>(false)
   const router = useRouter()
-  const { locale } = router
+  const { locale, pathname } = router
 
   const switchLanguage = (localeSwitch: string): any => {
-    router.push('/', `/`, { locale: localeSwitch })
+    console.log(window.location.origin)
+    router.push(`${window.location.origin}${pathname}`, `${window.location.origin}${pathname}`, {
+      locale: localeSwitch,
+    })
     if (cookie.NEXT_LOCALE !== localeSwitch) {
       setCookie('NEXT_LOCALE', localeSwitch, { path: `/` })
     }

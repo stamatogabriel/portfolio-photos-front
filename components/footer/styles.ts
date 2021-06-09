@@ -8,6 +8,7 @@ export const Container = styled.footer`
   justify-content: center;
   height: 180px;
   background: rgba(255, 255, 255, 0.3);
+  box-shadow: 4px 2px 2px 2px rgba(0, 0, 0, 0.3);
 
   a,
   p {

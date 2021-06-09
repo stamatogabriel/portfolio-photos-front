@@ -53,7 +53,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     sessionStorage.setItem('@Portfolio:access_token', access_token)
     sessionStorage.setItem('@Portfolio:user', JSON.stringify(user))
 
-    document.cookie = `@Portfolio_access_token=${access_token};path=/`
+    document.cookie = `@Portfolio_access_token=${access_token};path=/;`
 
     setData({ access_token, user })
   }, [])
