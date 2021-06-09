@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
-
+/* eslint-disable */
 import Link from 'next/link'
 
 const PolicyEnglish: React.FC = () => (
