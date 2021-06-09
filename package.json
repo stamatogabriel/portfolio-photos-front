@@ -8,9 +8,11 @@
     "start": "next start",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --ext js,jsx,ts,tsx --fix",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "generate-sitemap": "node sitemap-generator.js"
   },
   "dependencies": {
+    "@sergeymyssak/nextjs-sitemap": "^1.1.1",
     "@unform/core": "^2.1.6",
     "@unform/web": "^2.1.6",
     "axios": "^0.21.1",
