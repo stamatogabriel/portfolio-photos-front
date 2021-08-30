@@ -78,7 +78,7 @@ const ContentWrapper = styled.div`
 `
 
 const CustomContainer = styled(Container)`
-  @media (max-width: 750px) {
+  @media (max-width: 800px) {
     flex-direction: column;
 
     p {
@@ -97,7 +97,7 @@ const CustomContainer = styled(Container)`
 
   img {
     height: 300px;
-    margin-left: 45px;
+    margin: 0 45px;
   }
 `
 

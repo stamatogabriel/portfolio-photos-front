@@ -27,12 +27,13 @@ const SubHeader = styled.div`
   align-items: center;
   height: 45px;
   margin: 0;
-  background: rgba(0, 0, 0, 0.4);
 
   a {
+    padding: 6px;
+    border: 1px solid #333;
     text-align: center;
     font-size: 1rem;
-    color: #fff;
+    color: #333;
   }
 `
 

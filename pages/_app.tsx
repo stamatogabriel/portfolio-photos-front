@@ -15,7 +15,6 @@ import { AppProvider } from '../hooks'
 
 import { Header } from '../components/header'
 import Footer from '../components/footer'
-import { Container } from '../components/styles/container'
 import Link from 'next/link'
 
 Router.events.on('routeChangeStart', () => {
@@ -61,6 +60,7 @@ function MyApp({ Component, pageProps }): JSX.Element {
               background: '#ccc',
               color: '#333',
               textAlign: 'center',
+              padding: '5px',
             }}
             buttonStyle={{
               background: '#0F3B0C',
@@ -71,16 +71,14 @@ function MyApp({ Component, pageProps }): JSX.Element {
             declineButtonStyle={{ fontSize: '1rem', borderRadius: '7px' }}
             expires={150}
           >
-            <Container>
-              <p>
-                {locale === 'en'
-                  ? 'This website uses cookies to enhance the user experience.'
-                  : 'Este site utiliza cookies para melhorar sua experiência. Para saber mais visite nossa '}
-                <Link href="/privacy_policy">
-                  <a>{locale === 'en' ? 'Privacy Policy' : 'Política de Privacidade'}</a>
-                </Link>
-              </p>
-            </Container>
+            <p>
+              {locale === 'en'
+                ? 'This website uses cookies to enhance the user experience. '
+                : 'Este site utiliza cookies para melhorar sua experiência. Para saber mais visite nossa '}
+              <Link href="/privacy_policy">
+                <a>{locale === 'en' ? 'Privacy Policy' : 'Política de Privacidade'}</a>
+              </Link>
+            </p>
           </CookieConsent>
         </AppProvider>
       </ThemeProvider>
